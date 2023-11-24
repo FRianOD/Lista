@@ -2,10 +2,11 @@ Projeto de uma Lista encadeada criada usando python, com base nos conhecimentos 
 
 Operações possiveis:
   -Adicionar Elemento
-
+  -Remover Elemento por Valor
+  -Remover Elemento por Posição
+  -Tamanho da Lista
+  -Verificar se a Lista esta vazia
+  
 Operações que serão adicionadas:
-  -Remover Elemento
-  -Tamanho da Pilha
-  -Verificar se a Pilha esta vazia
   -Buscar Elemento
-  -Mostrar Pilha
+  -Mostrar Lista

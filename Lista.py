@@ -13,9 +13,12 @@ class Lista:
         if self.fim == None and self.inicio == None: return True
         else: return False
         
+    def tamanho(self):
+        return self.numeroDeElementos
+        
     def adicionar(self, pos, valor):
         
-        if pos <= 0 and pos >= self.numeroDeElementos:
+        if pos >= 0 and pos <= self.numeroDeElementos:
             
             novoDado = Dado(valor)
             
@@ -42,5 +45,83 @@ class Lista:
         else:
             return f"Posição invalida"
                     
+    def remover_V(self, valor):
+        if self.estaVazia(): return f"Lista vazia"
         
-         
+        lixo = Dado(-1)
+        
+        if valor == self.inicio.valor and self.numeroDeElementos == 1:
+            lixo = self.inicio
+            self.inicio = self.fim = None 
+            
+        if valor == self.inicio.valor:
+            
+            lixo = self.inicio
+            self.inicio = self.inicio.prox
+        
+        elif valor == self.fim.valor:
+            
+            lixo = self.fim
+            temp = self.inicio
+            i = 0
+            
+            while i < self.numeroDeElementos - 2:
+                
+                temp = temp.prox
+                i += 1
+                
+            self.fim = temp
+            self.fim.prox = None
+            
+        else:
+            temp = self.inicio
+            
+            while temp.prox != None and valor != temp.prox.valor:
+                    temp = temp.prox
+                    
+            if temp.prox is not None:
+                lixo = temp.prox
+                temp.prox = temp.prox.prox
+            
+        self.numeroDeElementos -= 1
+        return lixo.valor
+    
+    def remover_P(self, pos):
+    
+        if self.estaVazia(): return f"Lista vazia"
+        
+        lixo = Dado(-1)
+        
+        if pos == 0 and self.numeroDeElementos == 1:
+            lixo = self.inicio
+            self.inicio = self.fim = None 
+            
+        if pos == 0:
+            
+            lixo = self.inicio
+            self.inicio = self.inicio.prox
+        
+        elif pos == self.numeroDeElementos - 1:
+            
+            lixo = self.fim
+            temp = self.inicio
+            
+            for i in range(self.numeroDeElementos - 2):
+                
+                temp = temp.prox
+                
+            self.fim = temp
+            self.fim.prox = None
+            
+        else:
+            temp = self.inicio
+            
+            for i in range(pos-1) :
+                    temp = temp.prox
+            
+            if temp.prox != None:
+                lixo = temp.prox
+                temp.prox = temp.prox.prox
+        
+        self.numeroDeElementos -= 1
+        return lixo.valor
