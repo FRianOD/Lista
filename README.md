@@ -4,9 +4,10 @@ Operações possiveis:
   -Adicionar Elemento
   -Remover Elemento por Valor
   -Remover Elemento por Posição
+  -Buscar Elemento por Valor
+  -Buscar Elemento por Posição
   -Tamanho da Lista
   -Verificar se a Lista esta vazia
   
 Operações que serão adicionadas:
-  -Buscar Elemento
   -Mostrar Lista

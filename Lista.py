@@ -96,8 +96,7 @@ class Lista:
             lixo = self.inicio
             self.inicio = self.fim = None 
             
-        if pos == 0:
-            
+        elif pos == 0:
             lixo = self.inicio
             self.inicio = self.inicio.prox
         
@@ -125,3 +124,55 @@ class Lista:
         
         self.numeroDeElementos -= 1
         return lixo.valor
+    
+    def buscar_V(self, valor):
+        if self.estaVazia(): return f"Lista vazia"
+        
+        dado = Dado(-1)
+        posicao = -1
+        if valor == self.inicio.valor:
+            dado = self.inicio
+            posicao = 0
+            
+        elif valor == self.fim.valor:
+            dado = self.fim
+            posicao = self.numeroDeElementos - 1
+        
+        else:
+            temp = self.inicio
+            posicao = 1
+            while temp.prox != None and valor != temp.prox.valor:
+                    temp = temp.prox
+                    posicao +=1
+                    
+            if temp.prox is not None:
+                dado = temp.prox
+                
+            else:
+                posicao = -1
+            
+        if dado == -1 or posicao == -1:
+            return f"Valor não encontrado"
+        else:
+            return f"Valor {dado.valor} encontrado na posição {posicao} da lista"
+    
+    def buscar_P(self, pos):
+        if self.estaVazia(): return "Lista Vazia"
+        
+        dado = Dado(-1)
+        if pos == 0:
+            dado = self.inicio
+        elif pos == self.numeroDeElementos-1:
+            dado = self.fim
+        else:
+            temp = self.inicio
+            
+            for i in range(pos):
+                    temp = temp.prox
+            
+            if temp.prox != None:
+                dado = temp.prox
+            
+    def imprimirLista(self):
+        pass
+    
