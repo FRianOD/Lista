@@ -46,7 +46,7 @@ class Lista:
             return f"Posição invalida"
                     
     def remover_V(self, valor):
-        if self.estaVazia(): return f"Lista vazia"
+        if self.estaVazia(): return f"Lista Vazia"
         
         lixo = Dado(-1)
         
@@ -88,7 +88,7 @@ class Lista:
     
     def remover_P(self, pos):
     
-        if self.estaVazia(): return f"Lista vazia"
+        if self.estaVazia(): return f"Lista Vazia"
         
         lixo = Dado(-1)
         
@@ -126,7 +126,7 @@ class Lista:
         return lixo.valor
     
     def buscar_V(self, valor):
-        if self.estaVazia(): return f"Lista vazia"
+        if self.estaVazia(): return f"Lista Vazia"
         
         dado = Dado(-1)
         posicao = -1
@@ -172,7 +172,22 @@ class Lista:
             
             if temp.prox != None:
                 dado = temp.prox
+        
+        return dado.valor
             
     def imprimirLista(self):
-        pass
+        if self.estaVazia(): return "Lista Vazia"
+        
+        temp = self.inicio
+        print("[", end="")
+        while temp.prox != None:
+            print(f"{temp.valor},", end="")
+            temp = temp.prox
+        else:
+            print(f"{temp.valor}]")
     
+    def imprimirReversa(self, temp):
+        if temp != None:
+            self.imprimirReversa(temp.prox)
+            print(temp.valor, end=" ")
+        

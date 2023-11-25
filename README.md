@@ -8,6 +8,5 @@ Operações possiveis:
   -Buscar Elemento por Posição
   -Tamanho da Lista
   -Verificar se a Lista esta vazia
-  
-Operações que serão adicionadas:
   -Mostrar Lista
+  -Mostrar Lista Reverse
